@@ -1,0 +1,42 @@
+{% extends 'all-news/base.html' %}
+{% load bootstrap4 %}
+
+{% block header %}
+{{ block.super }}
+{% endblock header %}
+
+{% block content %}
+{{ block.super }}
+<div class="container">
+    <div class="row" style="padding-top: 5em;">
+        <div class="col-md-6">
+            <!-- looping though news -->
+            {% for news_item in news %}
+            <div class="card">
+                <img class="card-img-top img-responsive" src="{{news_item.article_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ news_item.title }}</h5>
+                    <p class="text-mute">{{ news_item.editor }}</p>
+                    <p class="card-text"></p>
+                    <a href="/detail/{{ news_item.id}}" class="btn btn-outline-primary mr-auto">View</a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="row">
+                <h2 class="text-center">There's no news items</h2>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6">
+            <form action="{% url 'newsToday' %}" method="post">
+                {% csrf_token %}
+                {% bootstrap_form  letterForm layout='inline' %}
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock content %}

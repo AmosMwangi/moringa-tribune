@@ -1,0 +1,23 @@
+{% extends 'all-news/base.html' %}
+
+{% block content %}
+{{ block.super }}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{ news.article_image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ news.editor }}</h5>
+                        <p class="card-text modal-footer">{{ news.post }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

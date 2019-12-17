@@ -1,0 +1,20 @@
+{% extends 'all-news/base.html' %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <img src="{{news.news_image.url}}" class="img-responsive" alt="" data-target="#extraModal{{news_item.id}}" data-toggle="modal">
+        </div>
+
+        <div class="row">
+            <h1 class="text-center">{{ news.title }}</h1>
+        </div>
+
+        <div class="row">
+            <p>Posted {{ news.pub_date|timesince }} by {{ news.editor.first_name }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
