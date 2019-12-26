@@ -9,6 +9,7 @@ urlpatterns = [
     path('search/', views.search_results, name='search_results'),
     path('detail/<int:pkid>', views.detail, name = 'detail'),
     path('news/<int:pics_id>',views.news,name ='news'),
+    path('help_centre',views.help_centre,name="helpCentre")
 ]
 
 if settings.DEBUG:

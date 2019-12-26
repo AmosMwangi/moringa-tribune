@@ -1,0 +1,27 @@
+{% extends 'all-news/base.html' %}
+
+{% block content %}
+{{ block.super }}
+<div class="container">
+    <h1>HELP CENTRE</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="navbar-form" role="search" action="{% url 'helpCentre' %}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Type short code" name="code">
+                    <div class="input-group-btn">
+                        <button class="btn btn-outline-danger" type="submit">Post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <h4>Short Codes</h4>
+                <p>home: To go home</p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
